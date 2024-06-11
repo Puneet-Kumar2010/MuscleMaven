@@ -42,6 +42,7 @@
 body {
     overflow-x: hidden;
     background: var(--moon);
+    width: 100vw;
 }
 
 .background-effect-1 {
@@ -489,5 +490,13 @@ body {
 
     .blanked-text {
         top: 0;
+    }
+
+    .welcome p {
+    margin-top: 35px;
+    width: 50%;
+    text-wrap: balance;
+    font-family: 'Poppins';
+    font-size: 0.9rem;
     }
 }
