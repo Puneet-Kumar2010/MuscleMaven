@@ -112,7 +112,7 @@ body {
     top: 0;
     right: -400px;
     height: 100vh;
-    min-width: 400px;
+    min-width: 350px;
     background: var(--jungle);
     z-index: 100000000;
 }
