@@ -42,8 +42,9 @@
 body {
     overflow: hidden;
     background: var(--moon);
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
+    position: relative;
 }
 
 .background-effect-1 {
@@ -114,9 +115,10 @@ body {
     top: 0;
     right: -400px;
     height: 100vh;
-    min-width: 400px;
+    min-width: 350px;
     background: var(--jungle);
     z-index: 100000000;
+    width: 0;
 }
 
 .close-menu {
