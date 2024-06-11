@@ -9,6 +9,7 @@ closeBtn.addEventListener("click", () => {
 
 openBtn.addEventListener("click", () => {
     menu.style.right = "0"
+    menu.style.width = "350px";
 });
 
 document.addEventListener("scroll", () => {
