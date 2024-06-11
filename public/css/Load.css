@@ -117,6 +117,7 @@ body {
     min-width: 350px;
     background: var(--jungle);
     z-index: 100000000;
+    width: 0;
 }
 
 .close-menu {
@@ -495,7 +496,7 @@ body {
 
     .welcome p {
     margin-top: 35px;
-    width: 50%;
+    width: 90%;
     text-wrap: balance;
     font-family: 'Poppins';
     font-size: 0.9rem;
