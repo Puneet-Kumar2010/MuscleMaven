@@ -39,11 +39,17 @@
     background: #555;
 }
 
+html{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     overflow-x: hidden;
     background: var(--moon);
     width: 100vw;
     position: relative;
+    z-index: 100000000000;
 }
 
 .background-effect-1 {
@@ -112,11 +118,11 @@ body {
 .options {
     position: absolute;
     top: 0;
-    right: -400px;
+    right: -350px;
     height: 100vh;
     background: var(--jungle);
     z-index: 100000000;
-    width: 0;
+    width: 350px;
 }
 
 .close-menu {

@@ -113,12 +113,11 @@ body {
 .options {
     position: absolute;
     top: 0;
-    right: -400px;
+    right: -350px;
     height: 100vh;
-    min-width: 350px;
     background: var(--jungle);
     z-index: 100000000;
-    width: 0;
+    width: 350px;
 }
 
 .close-menu {
