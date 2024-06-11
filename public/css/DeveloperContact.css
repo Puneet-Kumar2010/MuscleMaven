@@ -1,0 +1,224 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --moon: #2c3e50;
+    --jungle: #34495e;
+    --shiny: #e74c3c;
+    --darkshine: #f39c12;
+    --light: #ecf0f1;
+    --deepblue: #3498db;
+    --silver: #bdc3c7;
+
+    /* Measurements */
+    --navigation-height: 12vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Poppins', sans-serif;
+    transition: all 0.5s linear;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    overflow: hidden;
+    background: var(--moon);
+    height: 100vh;
+    width: 100vw;
+}
+
+.background-effect-1 {
+    background: var(--darkshine);
+    height: 450px;
+    aspect-ratio: 1 / 1;
+    filter: blur(50px) brightness(100);
+    position: absolute;
+    top: -100px;
+    left: -20px;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.background-effect-2 {
+    background: var(--shiny);
+    height: 500px;
+    aspect-ratio: 1 / 1;
+    filter: blur(60px);
+    position: absolute;
+    top: 100vh;
+    right: -100px;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.navigation {
+    height: var(--navigation-height);
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    width: fit-content;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo img {
+    height: 85%;
+    object-fit: contain;
+}
+
+.menu {
+    margin-right: 20px;
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--jungle);
+    filter: brightness(2);
+    transition: all 0.2s linear;
+}
+
+.menu i {
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    height: 100vh;
+    min-width: 400px;
+    background: var(--jungle);
+    z-index: 100000000;
+}
+
+.close-menu {
+    margin-right: 20px;
+    font-size: 1.5rem;
+    color: var(--jungle);
+    height: 12vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.close-menu i {
+    margin-right: 15px;
+    filter: brightness(1.5);
+    cursor: pointer;
+}
+
+.close-menu p {
+    color: var(--light);
+    margin-left: 20px;
+    font-family: "Oswald", sans-serif;
+}
+
+.options .line {
+    margin: 20px 0px;
+    background: var(--moon);
+    height: 1px;
+}
+
+.menu-options {
+    padding: 20px;
+}
+
+.menu-options a {
+    text-decoration: none;
+    color: var(--silver);
+    display: flex;
+    align-items: center;
+}
+
+#section-1 {
+    height: calc(100vh - var(--navigation-height));
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--light);
+}
+
+#section-1 form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#section-1  h1{
+    font-family: 'Poppins';
+    margin-bottom: 30px;
+}
+
+#section-1 form input, textarea{
+    width: 400px;
+    margin: 20px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: var(--jungle);
+    filter: brightness(1.5);
+    font-size: 0.9rem;
+    color: var(--silver);
+}
+
+#section-1 form textarea{
+    max-width: 400px;
+    max-height: 300px;
+    min-height: 100px;
+}
+
+@media (max-width: 450px) {
+    #section-1 form input, textarea{
+        width: 90%;
+        margin: 20px;
+        padding: 10px 10px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: var(--jungle);
+        filter: brightness(1.5);
+        font-size: 0.9rem;
+        color: var(--silver);
+    }
+    
+    #section-1 form textarea{
+        max-width: 90%;
+        max-height: 40%;
+        min-height: 100px;
+    }
+}

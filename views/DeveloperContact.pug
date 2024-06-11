@@ -1,0 +1,62 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="css/DeveloperContact.css")
+        link(rel="shortcut icon", href="media/logo/logo-icon.jpg", type="image/x-icon")
+        title MuscleMaven: Developer Contact
+    body 
+        .background-effect-1
+        .background-effect-2
+        .navigation
+            .logo 
+                img(src="media/logo/logo-icon.jpg", alt="Logo")
+            .menu 
+                i.fa-solid.fa-bars#open-btn
+        .options#options
+            .close-menu
+                i.fa-solid.fa-xmark#close-btn
+                p MuscleMaven 
+            .menu-options 
+                a(href="/") 
+                    i.fa-solid.fa-house 
+                    | &nbsp;Home
+                .line
+                a(href="/daily-exercises") 
+                    i.fa-solid.fa-repeat 
+                    | &nbsp;Daily Exercises
+                .line
+                a(href="/training") 
+                    i.fa-solid.fa-dumbbell 
+                    | &nbsp;Training
+                .line
+                a(href="/chat") 
+                    i.fa-solid.fa-comments 
+                    | &nbsp;ChatRoom
+                .line
+                a(href="/articles") 
+                    i.fa-solid.fa-newspaper 
+                    | &nbsp;Articles
+                .line
+                a(href="/privacy-and-policies") 
+                    i.fa-solid.fa-shield-halved
+                    | &nbsp;Privacy and Policies
+                .line
+                a(href="/feedback") 
+                    i.fa-solid.fa-comment
+                    | &nbsp;Feedback
+                .line
+                a(href="/developer-contact") 
+                    i.fa-solid.fa-address-book
+                    | &nbsp;Developer Contact
+        .section#section-1
+            h1 Developer Contact
+            form(action="/developer-contact", method="post") 
+                input(type="text", name="name" placeholder="Name" required)
+                input(type="email", name="email", placeholder="Email" required)
+                textarea#message(name="" placeholder="Message") 
+                input#mail-content(type="hidden", name="message" required)
+                input(type="submit", value="Send to Developer")
+    script(src="https://kit.fontawesome.com/45c7c9c055.js" crossorigin="anonymous")
+    script(src="js/DeveloperContact.js") 
