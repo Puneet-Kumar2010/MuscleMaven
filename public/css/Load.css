@@ -43,6 +43,7 @@ body {
     overflow-x: hidden;
     background: var(--moon);
     width: 100vw;
+    position: relative;
 }
 
 .background-effect-1 {
