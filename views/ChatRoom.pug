@@ -1,0 +1,123 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="css/ChatRoom.css")
+        link(rel="shortcut icon", href="media/logo/logo-icon.jpg", type="image/x-icon")
+        title MuscleMaven: ChatRoom
+    body 
+        .background-effect-1
+        .background-effect-2
+        .navigation
+            .logo 
+                img(src="media/logo/logo-icon.jpg", alt="Logo")
+            .menu 
+                i.fa-solid.fa-bars#open-btn
+        .options#options
+            .close-menu
+                i.fa-solid.fa-xmark#close-btn
+                p MuscleMaven 
+            .menu-options 
+                a(href="/") 
+                    i.fa-solid.fa-house 
+                    | &nbsp;Home
+                .line
+                a(href="/daily-exercises") 
+                    i.fa-solid.fa-repeat 
+                    | &nbsp;Daily Exercises
+                .line
+                a(href="/training") 
+                    i.fa-solid.fa-dumbbell 
+                    | &nbsp;Training
+                .line
+                a(href="/chat") 
+                    i.fa-solid.fa-comments 
+                    | &nbsp;ChatRoom
+                .line
+                a(href="/articles") 
+                    i.fa-solid.fa-newspaper 
+                    | &nbsp;Articles
+                .line
+                a(href="/privacy-and-policies") 
+                    i.fa-solid.fa-shield-halved
+                    | &nbsp;Privacy and Policies
+                .line
+                a(href="/feedback") 
+                    i.fa-solid.fa-comment
+                    | &nbsp;Feedback
+                .line
+                a(href="/developer-contact") 
+                    i.fa-solid.fa-address-book
+                    | &nbsp;Feedback
+        .chat#chat
+            .notify Welcome to MuscleMaven Chat
+        .messenger 
+            input#msg-input(placeholder="Type a message..." required)
+            button#send-btn Send
+        script(src="https://kit.fontawesome.com/45c7c9c055.js" crossorigin="anonymous")
+        script(src="js/ChatRoom.js") 
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js' integrity='sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==' crossorigin='anonymous')
+        script.
+            const socket = io();
+            const chat = document.getElementById("chat");
+            const msgInput = document.getElementById("msg-input");
+            const sendBtn = document.getElementById("send-btn");
+            let name;
+            do {
+                name = prompt("Please enter your name:");
+            } while (!name || !name.trim());
+            const setRandomString = (length) => {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result = '';
+                const charactersLength = characters.length;
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * charactersLength);
+                    result += characters.charAt(randomIndex);
+                }
+                return result;
+            };
+            name = name.trim() + "-" + setRandomString(5);
+            socket.emit("NewUserConnected", name);
+            const scrollToBottom = () => {
+                chat.scrollTop = chat.scrollHeight;
+            };
+            socket.on("userJoined", (userName) => {
+                chat.innerHTML += "<div class='notify'>"+userName+" joined the chat!</div>";
+                scrollToBottom();
+            });
+            socket.on("currentUsers", (users) => {
+                const otherUsers = users.filter(user => user !== name);
+                if (otherUsers.length > 0) {
+                    chat.innerHTML += `<div class='notify'>${otherUsers.join(", ")} are online!</div>`;
+                } else {
+                    chat.innerHTML += "<div class='notify'>You are the only one online.</div>";
+                }
+                scrollToBottom();
+            });
+            socket.on("userLeft", (userName) => {
+                chat.innerHTML += `<div class='notify'>${userName} left the chat!</div>`;
+                scrollToBottom();
+            });
+            const sendMessage = () => {
+                const message = msgInput.value.trim();
+                if (message) {
+                    socket.emit("sendMessage", message);
+                    chat.innerHTML += `<div class='message'><div class='name'>you:</div> <div class="msg">&nbsp; ${message}</div></div>`;
+                    msgInput.value = "";
+                    scrollToBottom();
+                }
+            };
+            msgInput.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" && !event.shiftKey) {
+                    sendBtn.click();
+                    event.preventDefault(); 
+                }
+            });
+            sendBtn.addEventListener("click", sendMessage);
+            socket.on("receiveMessage", (data) => {
+                if (data.user !== name) {
+                    chat.innerHTML += `<div class='message'><div class='name'>${data.user}:</div> &nbsp; <div class='msg'> ${data.message}</div></div>`;
+                    scrollToBottom();
+                }
+            });

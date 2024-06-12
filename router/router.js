@@ -20,8 +20,9 @@ router.post("/developer-contact", controller.DeveloperContacting);
 router.get("/feedback", controller.FeedbackLoad);
 router.post("/feedback", controller.FeedbackConnecting);
 router.get("/privacy-and-policies", controller.PrivacyAndPolicies);
+router.get("/chat", controller.ChatRoom);
 
-// TODO: Daily exercises, training, chatroom, articles
+// TODO: Daily exercises, training, articles
 
 // * exporting router
 module.exports = router;

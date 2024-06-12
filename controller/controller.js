@@ -127,9 +127,17 @@ const FeedbackConnecting = async (req, res) => {
     }
 }
 
-const PrivacyAndPolicies = async(req,res)=>{
+const PrivacyAndPolicies = async (req, res) => {
     try {
         res.render("PrivacyAndPolicies")
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+const ChatRoom = async (req, res) => {
+    try {
+        res.render("ChatRoom");
     } catch (error) {
         console.log(error.message);
     }
@@ -141,5 +149,6 @@ module.exports = {
     DeveloperContacting,
     FeedbackLoad,
     FeedbackConnecting,
-    PrivacyAndPolicies
+    PrivacyAndPolicies,
+    ChatRoom
 }
