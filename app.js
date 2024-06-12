@@ -18,8 +18,6 @@ io.on("connection", (socket) => {
     socket.on("NewUserConnected", (data) => {
         userName = data;
         activeUsers.push(userName);
-        console.log(`Active: ${activeUsers.length}`);
-        console.log(`User connected: ${userName}`);
         socket.broadcast.emit("userJoined", userName);
         socket.emit("currentUsers", activeUsers);
     });
@@ -29,8 +27,6 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         if (userName) {
             activeUsers = activeUsers.filter(user => user !== userName);
-            console.log(`Active: ${activeUsers.length}`);
-            console.log(`User disconnected: ${userName}`);
             io.emit("userLeft", userName);
         }
     });
@@ -38,5 +34,4 @@ io.on("connection", (socket) => {
 
 // * starting the app
 http.listen(config.port, () => {
-    console.log("server is running on port " + config.port);
 });
