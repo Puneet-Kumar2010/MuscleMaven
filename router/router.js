@@ -21,8 +21,9 @@ router.get("/feedback", controller.FeedbackLoad);
 router.post("/feedback", controller.FeedbackConnecting);
 router.get("/privacy-and-policies", controller.PrivacyAndPolicies);
 router.get("/chat", controller.ChatRoom);
-
-// TODO: Daily exercises, training, articles
+router.get("/articles", controller.articles);
+router.get("/daily-exercises", controller.DailyExercises);
+router.get("/training", controller.Training);
 
 // * exporting router
 module.exports = router;

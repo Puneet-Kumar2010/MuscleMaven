@@ -143,6 +143,29 @@ const ChatRoom = async (req, res) => {
     }
 }
 
+const articles = async (req, res) => {
+    try {
+        res.render("articles");
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+const DailyExercises = async (req, res) => {
+    try {
+        res.render("DailyExercises");
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+const Training = async (req, res) => {
+    try {
+        res.render("Training");
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 module.exports = {
     Load,
     DeveloperContactLoad,
@@ -150,5 +173,8 @@ module.exports = {
     FeedbackLoad,
     FeedbackConnecting,
     PrivacyAndPolicies,
-    ChatRoom
+    ChatRoom,
+    articles,
+    DailyExercises,
+    Training
 }
