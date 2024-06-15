@@ -190,12 +190,11 @@ body {
 
 .article {
     background: var(--jungle);
-    min-width: 357px;
     text-wrap: balance;
-    max-width: 900px;
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
+    width: 90%;
 }
 
 .heading {
@@ -221,4 +220,15 @@ body {
 
 .content ul li{
     margin: 10px 20px;
+}
+
+@media (max-width: 500px) {
+    .article {
+        background: var(--jungle);
+        text-wrap: balance;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        width: 90%;
+    }
 }
