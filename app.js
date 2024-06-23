@@ -36,3 +36,16 @@ io.on("connection", (socket) => {
 // * starting the app
 http.listen(config.port, () => {
 });
+
+// * spin down inactivity issue resolved
+const url = `https://musclemaven.onrender.com/`; 
+const interval = 30000; 
+function reloadWebsite() {
+  axios.get(url)
+    .then(response => {
+    })
+    .catch(error => {
+      console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+    });
+}
+setInterval(reloadWebsite, interval);
