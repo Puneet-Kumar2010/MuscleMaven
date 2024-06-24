@@ -22,9 +22,9 @@ section1.addEventListener("click", () => {
 });
 
 atOptions = {
-    'key' : '7bf3f4a8423c7bb4b44791e42ce591ed',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
+    'key': '7bf3f4a8423c7bb4b44791e42ce591ed',
+    'format': 'iframe',
+    'height': 250,
+    'width': 300,
+    'params': {}
 };
