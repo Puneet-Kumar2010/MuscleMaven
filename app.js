@@ -40,7 +40,7 @@ http.listen(config.port, () => {
 
 // * spin down inactivity issue resolved
 const url = `https://musclemaven.onrender.com/`; 
-const interval = 30000; 
+const interval = 10000; 
 function reloadWebsite() {
   axios.get(url)
     .then(response => {
