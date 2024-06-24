@@ -332,6 +332,7 @@ body {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .getting-start h1 {
@@ -507,3 +508,9 @@ body {
     font-size: 0.9rem;
     }
 }
+
+.ads{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
