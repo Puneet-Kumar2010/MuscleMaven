@@ -212,3 +212,10 @@ body {
     filter: contrast(10);
     color: var(--light);
 }
+
+.ads{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

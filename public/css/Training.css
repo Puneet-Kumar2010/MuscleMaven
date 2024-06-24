@@ -191,6 +191,13 @@ body {
     margin-bottom: 20px;
 }
 
+.ads{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .part{
     font-weight: 500;
     font-size: 1.6rem;
